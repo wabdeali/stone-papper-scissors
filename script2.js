@@ -4,18 +4,18 @@ function notification(){
     alert("Let's go!!")
 }
 
-function collectInputAndShowScore(humanScore, computerScore){
+function collectInputAndShowScore(humanScore,computerScore){
     humanChoice=prompt(`Choose your Weapon\nCurrent score: Human: ${humanScore} Computer: ${computerScore}`).toLowerCase();
     if(humanChoice== "rock"||humanChoice=="stone"||humanChoice=="papper"||humanChoice=="scissors"){
         return humanChoice
     }
     else {
         alert("Oops! We think you spelled your weapon wrong. Please try again!")
-        collectInputAndShowScore();
+        collectInputAndShowScore(humanScore,computerScore);
     }
 }
 
-function didHumanWin(humanChoice,computerChoice){
+function whoWon(humanChoice,computerChoice){
     let humanWon="Human wins!!!", computerWon="Computer wins!!!";
     if(humanChoice=="stone"||humanChoice=="rock"&&computerChoice==0||humanChoice=="papper"&&computerChoice==1||humanChoice=="scissors"&&computerChoice==2){
         return tie="It's a tie!";
@@ -50,10 +50,31 @@ function computerChoice(){
 }
 
 
-function game(){
-    notification();
-    collectInputAndShowScore();
-    didHumanWin(humanChoice,computerChoice());
-
+function keepScore(){
+    let humanScore=0, computerScore=0;
+    let humanWon ="Human wins!!!", computerWon="Computer wins!!!";
+    while(humanScore<5 && computerScore<5){
+        console.log(humanScore,computerScore);
+        collectInputAndShowScore(humanScore,computerScore)
+        result=whoWon(humanChoice,computerChoice())
+        if(result===humanWon){
+            alert(humanWon);
+            humanScore++;
+        }
+        else if(result===computerWon){
+            alert(computerWon);
+            computerScore++;
+        }
+        else if(result==tie){
+            alert(tie);
+        }
+        
+    }
+    humanScore>computerScore?alert("Human wins the match!"):alert("Machine wins the match!")
 }
-game()
+
+
+notification();
+keepScore();
+
+
