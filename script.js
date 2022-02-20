@@ -17,7 +17,7 @@ function collectInputAndShowScore(humanScore,computerScore){
 
 function whoWon(humanChoice,computerChoice){
     let humanWon="Human wins!!!", computerWon="Computer wins!!!";
-    if(humanChoice=="stone"||humanChoice=="rock"&&computerChoice==0||humanChoice=="papper"&&computerChoice==1||humanChoice=="scissors"&&computerChoice==2){
+    if((humanChoice=="stone"||humanChoice=="rock")&&computerChoice==0||humanChoice=="papper"&&computerChoice==1||humanChoice=="scissors"&&computerChoice==2){
         return tie="It's a tie!";
     }
     if(humanChoice =="papper"){
@@ -70,7 +70,7 @@ function keepScore(){
         }
         
     }
-    humanScore>computerScore?alert("Human wins the match!"):alert("Machine wins the match!")
+    humanScore>computerScore?alert("Human wins the match!"):alert("Computer wins the match!")
 }
 
 
