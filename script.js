@@ -1,12 +1,12 @@
 function notification(){
-    alert("Let's play Stone, Papper, Scissors (hope you spell things correctly)")
+    alert("Let's play Stone, Paper, Scissors (hope you spell things correctly)")
     alert("The first one to reach 5 points wins!!!\nYou ready?")
     alert("Let's go!!")
 }
 
 function collectInputAndShowScore(humanScore,computerScore){
     humanChoice=prompt(`Choose your Weapon\nCurrent score: Human: ${humanScore} Computer: ${computerScore}`).toLowerCase();
-    if(humanChoice== "rock"||humanChoice=="stone"||humanChoice=="papper"||humanChoice=="scissors"){
+    if(humanChoice== "rock"||humanChoice=="stone"||humanChoice=="paper"||humanChoice=="scissors"){
         return humanChoice
     }
     else {
@@ -17,10 +17,10 @@ function collectInputAndShowScore(humanScore,computerScore){
 
 function whoWon(humanChoice,computerChoice){
     let humanWon="Human wins!!!", computerWon="Computer wins!!!";
-    if((humanChoice=="stone"||humanChoice=="rock")&&computerChoice==0||humanChoice=="papper"&&computerChoice==1||humanChoice=="scissors"&&computerChoice==2){
+    if((humanChoice=="stone"||humanChoice=="rock")&&computerChoice==0||humanChoice=="paper"&&computerChoice==1||humanChoice=="scissors"&&computerChoice==2){
         return tie="It's a tie!";
     }
-    if(humanChoice =="papper"){
+    if(humanChoice =="paper"){
         if(computerChoice ==0){
             return humanWon;
         }
@@ -76,5 +76,3 @@ function keepScore(){
 
 notification();
 keepScore();
-
-
